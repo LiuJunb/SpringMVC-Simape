@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/aop
+     	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	  
+	<!-- 自动加载构建bean   -->
+    <context:component-scan base-package="com.xmg.touna.service" /> 
+     <context:component-scan base-package="com.xmg.touna.dao" /> 
+    <!-- 启用Aop AspectJ注解 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/> 
+      
+    <!-- 配置一个拦截器对象，处理具体的切换数据源的业务 -->
+<!--     <bean id="dataSourceMethodInterceptor" class="szb2.api.core.dsmanager.DataSourceMethodInterceptor"/>
+     -->
+    <!-- 参与动态切换数据源的切入点对象 (切入点对象，确定何时何地调用拦截器) -->
+<!--     <bean id="methodCachePointCut" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        配置缓存aop切面
+        <property name="advice" ref="dataSourceMethodInterceptor" />
+        配置哪些方法参与缓存策略
+        
+            .表示符合任何单一字元 
+            ### +表示符合前一个字元一次或多次 
+            ### *表示符合前一个字元零次或多次 
+            ### \Escape任何Regular expression使用到的符号 
+        
+        .*表示前面的前缀(包括包名) 表示print方法
+        <property name="patterns">
+            <list>
+                <value>szb2.api.service.*\.*.*</value>               
+            </list>
+        </property>
+    </bean> -->
+        
+</beans>

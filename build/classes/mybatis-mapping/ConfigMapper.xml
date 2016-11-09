@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xmg.touna.dao.mappers.ConfigMapper" >
+
+	<!-- ==============以下内容是根据自身业务扩展的内容======================= -->
+	<!-- select标签的id属性与UserDAO接口中定义的findAllList方法要一模一样 -->
+	<select id="getAll" resultType="com.xmg.touna.model.Config">
+	    select * from config
+	</select>
+	<select id="getOneById" resultType="com.xmg.touna.model.Config">
+	    select * from config where id = #{id,jdbcType=BIGINT}
+	</select>
+</mapper>
